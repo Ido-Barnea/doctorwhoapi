@@ -1,0 +1,16 @@
+[
+  {"id": 1, "incarnation": "First Doctor", "actorID": 1, "image": "/images/1st doctor", "companionIDs": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]},
+  {"id": 2, "incarnation": "Second Doctor", "actorID": 2, "image": "/images/2nd doctor", "companionIDs": ["9", "10", "11", "12", "13"]},
+  {"id": 3, "incarnation": "Third Doctor", "actorID": 3, "image": "/images/3rd doctor", "companionIDs": ["14", "15", "16"]},
+  {"id": 4, "incarnation": "Fourth Doctor", "actorID": 4, "image": "/images/4th doctor", "companionIDs": ["16", "17", "18", "19", "20", "21", "22", "23", "24"]},
+  {"id": 5, "incarnation": "Fifth Doctor", "actorID": 5, "image": "/images/5th doctor", "companionIDs": ["22", "23", "24", "25", "26", "27"]},
+  {"id": 6, "incarnation": "Sixth Doctor", "actorID": 6, "image": "/images/6th doctor", "companionIDs": ["27", "28"]},
+  {"id": 7, "incarnation": "Seventh Doctor", "actorID": 7, "image": "/images/7th doctor", "companionIDs": ["28", "29"]},
+  {"id": 8, "incarnation": "Eighth Doctor", "actorID": 8, "image": "/images/8th doctor", "companionIDs": ["30"]},
+  {"id": 9, "incarnation": "War Doctor", "actorID": 9, "image": "/images/war doctor", "companionIDs": []},
+  {"id": 10, "incarnation": "Ninth Doctor", "actorID": 10, "image": "/images/9th doctor", "companionIDs": ["31",  "32", "33"]},
+  {"id": 11, "incarnation": "Tenth Doctor", "actorID": 11, "image": "/images/10th doctor", "companionIDs": ["31", "33", "34", "35", "36", "37"]},
+  {"id": 12, "incarnation": "Eleventh Doctor", "actorID": 12, "image": "/images/11th doctor", "companionIDs": ["38", "39", "40", "41"]},
+  {"id": 13, "incarnation": "Twelfth Doctor", "actorID": 13, "image": "/images/12th doctor", "companionIDs": ["40", "41", "42", "43"]},
+  {"id": 14, "incarnation": "Thirteenth Doctor", "actorID": 14, "image": "/images/13th doctor", "companionIDs": ["33", "44", "45", "46", "47"]}
+]
