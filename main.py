@@ -1,7 +1,9 @@
 from flask import *
 import json
+from IMDBUtil import IMDBUtil
 
 app = Flask(__name__)
+imdb = IMDBUtil()
 
 @app.route('/', methods=['GET'])
 def home_page():
@@ -26,11 +28,11 @@ def get_data(file_name, data_id):
         data = json.load(f)
 
     if data_id is None:
-        return str(data)
+        return data
     else:
         try:
             index = data_id - 1
-            return str(data[index])
+            return data[index]
         except ValueError:
             return 'Index must be an integer.'
         except IndexError:
@@ -39,22 +41,42 @@ def get_data(file_name, data_id):
 @app.route('/doctors/', defaults={'doctor_id': None}, methods=['GET'])
 @app.route('/doctors/<int:doctor_id>', methods=['GET'])
 def doctors_page(doctor_id):
-    return get_data('doctors', doctor_id)
+    return str(get_data('doctors', doctor_id))
 
 @app.route('/companions/', defaults={'companion_id': None}, methods=['GET'])
 @app.route('/companions/<int:companion_id>', methods=['GET'])
 def companions_page(companion_id):
-    return get_data('companions', companion_id)
+    return str(get_data('companions', companion_id))
 
 @app.route('/actors/', defaults={'actor_id': None}, methods=['GET'])
 @app.route('/actors/<int:actor_id>', methods=['GET'])
 def actors_page(actor_id):
-    return get_data('actors', actor_id)
+    actor_data = get_data('actors', actor_id)
+    if actor_id is None:
+        return str(actor_data)
+    else:
+        imdb_actor_data = imdb.get_actor(actor_data.get('name'))
+        actor_data.update(imdb_actor_data)
+        return actor_data
 
 @app.route('/writers/', defaults={'writer_id': None}, methods=['GET'])
 @app.route('/writers/<int:writer_id>', methods=['GET'])
 def writers_page(writer_id):
-    return get_data('writers', writer_id)
+    return str(get_data('writers', writer_id))
+
+@app.route('/plot-outline', methods=['GET'])
+def plot_outline():
+    return 'The Doctor, a Time Lord from the race whose home planet is Gallifrey,' \
+           'travels through time and space in their ship the TARDIS (an acronym for Time and Relative Dimension In Space) with numerous companions.' \
+           'From time to time, the Doctor regenerates into a new form.'
+
+@app.route('/cover-url', methods=['GET'])
+def cover_url():
+    return imdb.get_cover_url()
+
+@app.route('/rating', methods=['GET'])
+def rating():
+    return imdb.get_rating()
 
 
 if __name__ == '__main__':
